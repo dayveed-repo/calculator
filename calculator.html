@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="./calculator.css">
+</head>
+<body>
+    <div id="main">
+        <div id="sub-main">
+            <input type="text" id="screen" />
+            <div class="row">
+                <button id="num">7</button>
+                <button id="num">8</button>
+                <button id="num">9</button>
+                <button id ="sign">+</button>
+            </div>
+
+            <div class="row">
+                <button id="num">6</button>
+                <button id="num">5</button>
+                <button id="num">4</button>
+                <button id ="sign">-</button>
+            </div>
+
+            <div class="row">
+                <button id="num">3</button>
+                <button id="num">2</button>
+                <button id="num">1</button>
+                <button id ="sign">/</button>
+            </div>
+
+            <div class="row">
+                <button id="num">0</button>
+                <button id="sign2">=</button>
+                <button id ="sign">*</button>
+            </div>
+
+            <div class="row">
+                <button id="num2">c</button>
+                <button id ="sign">.</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        let screen = document.querySelector("#screen")
+        screen.value = ""
+        document.querySelectorAll("#num").forEach(num => {
+            num.addEventListener("click", () => {
+                screen.value += num.textContent
+            })
+        })
+        document.querySelectorAll("#sign").forEach(sign => {
+            sign.addEventListener("click", () => {
+                screen.value += sign.textContent
+            })
+        })
+        document.querySelector("#num2").addEventListener("click", () => {
+            screen.value = ""
+        })
+        
+        document.querySelector("#sign2").addEventListener("click", () => {
+            if(screen.value == ""){
+            alert("please enter a value");
+            }else{
+            let final_result = eval(screen.value)
+            screen.value = final_result
+            }
+        })
+   
+    </script>
+</body>
+</html>
